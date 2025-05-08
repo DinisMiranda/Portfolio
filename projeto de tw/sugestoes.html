@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Sugestões</title>
+    <script src="scripts/scripts.js" defer></script>
+    <link rel="stylesheet" href="styles/sugestoes.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon">
+            <a href="#">Menu</a>
+            <div class="dropdown-content">
+                <a href="./index.html">Home</a>
+                <a href="./catalogo/catalogo.html">Catalog</a>
+                <a href="./about.html">About</a>
+                <a href="./contactos.html">Contact</a>
+            </div>
+        </div>
+        <h1>University Online Library</h1>
+    </header>
+
+    <h1>Deixe sua Sugestão</h1>
+    <form id="suggestionForm">
+        <label for="suggestion">Sua Sugestão:</label><br>
+        <textarea id="suggestion" name="suggestion" required></textarea><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <h2>Sugestões Anteriores:</h2>
+    <p>Total de sugestões: <span id="totalSuggestions">0</span></p>
+    <ul id="suggestionList"></ul>
+</body>
+</html>

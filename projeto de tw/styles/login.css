@@ -1,0 +1,180 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    color: #2c3e50;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Header styles */
+header {
+    background-color:  #EC5800;
+    color: #f4ede2;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Menu icon styles */
+.menu-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.menu-icon a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-icon a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown menu styles */
+.menu-icon .dropdown-content {
+    position: fixed;
+    width: 25vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: transform 1s ease;
+    transform: translateX(-100%);
+    background: rgba(51, 51, 51, 0.9);
+}
+
+.menu-icon .dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.menu-icon .dropdown-content a {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+}
+
+.menu-icon .dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+/* Show the menu on hover */
+.menu-icon:hover .dropdown-content {
+    transform: translateX(0);
+}
+
+/* Formulário de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8rem; /* Distância do cabeçalho fixo */
+    padding: 2rem;
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px; /* Largura máxima do formulário */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #3498db;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Links adicionais abaixo do formulário */
+.additional-options {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #3498db;
+}
+
+.additional-options a {
+    text-decoration: none;
+    color: #2980b9;
+    margin: 0 5px;
+}
+
+.additional-options a:hover {
+    text-decoration: underline;
+}

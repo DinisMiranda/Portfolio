@@ -1,0 +1,248 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #3e2a1b;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color:  #EC5800;
+    color: #f4ede2;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Menu icon styles */
+.menu-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.menu-icon a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-icon a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown menu styles */
+.menu-icon .dropdown-content {
+    position: fixed;
+    width: 25vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: transform 1s ease;
+    transform: translateX(-100%);
+    background: rgba(51, 51, 51, 0.9);
+}
+
+.menu-icon .dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.menu-icon .dropdown-content a {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+}
+
+.menu-icon .dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+/* Show the menu on hover */
+.menu-icon:hover .dropdown-content {
+    transform: translateX(0);
+}
+
+/* Sidebar Menu Styles */
+.menu {
+    width: 400px;
+    background-color: #2e2e2e;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #222;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background-color: #333;
+}
+
+.icon {
+    width: 20px; /* Ajuste o tamanho do ícone se necessário */
+    height: 20px;
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+    color: white; /* Cor do ícone */
+}
+
+.menu-item .text {
+    flex-grow: 1;
+}
+
+.arrow {
+    color: white;
+}
+
+/* Book Gallery */
+.book-gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+ gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.book-card {
+    background-color: #e0cbb6;
+    border: 2px solid #5a4633;
+    border-radius: 8px;
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.book-card h2 {
+    font-size: 19.2px;
+    color: #3e2a1b;
+    margin: 10px 0 5px;
+}
+
+.book-card p {
+    font-size: 14.4px;
+    color: #6b4e3b;
+}
+
+/* Footer */
+footer {
+    background-color:  #333;
+    color: #f4ede2;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 30px;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Dropdown Menu */
+.menu-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.menu-icon a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-icon a:hover {
+    text-decoration: underline;
+}
+
+.menu-icon .dropdown-content {
+    position: fixed;
+    width: 25vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: transform 1s ease;
+    transform: translateX(-100%);
+    background: #333;
+    opacity: 80%;
+}
+
+.menu-icon .dropdown-content a {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+}
+
+.menu-icon .dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+.menu-icon:hover .dropdown-content {
+    transform: translateX(0);
+}
