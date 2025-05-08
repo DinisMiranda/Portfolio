@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESMAD - Portal de Estudos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .subject-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .subject-card .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .subject-card .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .subject-card:hover .card-icon {
+            transform: scale(1.2) rotate(5deg);
+            color: var(--accent-color);
+        }
+        
+        .subject-card .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subject-card .card-text {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .coming-soon-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 5px 20px rgba(108, 92, 231, 0.3);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                margin-top: 1rem;
+            }
+            
+            .footer-links a {
+                margin: 0 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap me-2"></i>ESMAD
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html"><i class="fas fa-book me-1"></i> Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i> Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i> Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="hero-title">Portal de Estudos ESMAD</h1>
+            <p class="hero-subtitle">Acesse materiais de estudo, exercícios e recursos para suas disciplinas</p>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Pesquisar disciplinas ou tópicos...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mb-5">
+        <h2 class="category-title">Disciplinas</h2>
+        
+        <div class="row g-4">
+            <!-- JavaScript Card -->
+            <div class="col-md-6 col-lg-4">
+                <a href="materia.html#fundamentos" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="card-title">JavaScript</h3>
+                            <p class="card-text">Fundamentos, estruturas de controle, métodos, funções, objetos e mais.</p>
+                            <button class="btn btn-primary">Acessar Conteúdo</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Algebra Card -->
+            <div class="col-md-6 col-lg-4">
+                <a href="algebra.html#matrizes" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-square-root-alt"></i>
+                            </div>
+                            <h3 class="card-title">Álgebra Linear</h3>
+                            <p class="card-text">Matrizes, determinantes, sistemas lineares e aplicações.</p>
+                            <button class="btn btn-primary">Acessar Conteúdo</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Web Technologies Card (Coming Soon) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card subject-card">
+                    <span class="coming-soon-badge">Em breve</span>
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="card-title">Tecnologias Web</h3>
+                        <p class="card-text">HTML, CSS, JavaScript e frameworks modernos para desenvolvimento web.</p>
+                        <button class="btn btn-secondary" disabled>Em breve</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="category-title mt-5">Tópicos de JavaScript</h2>
+        
+        <div class="row g-4">
+            <!-- JavaScript Topics -->
+            <div class="col-md-6 col-lg-4">
+                <a href="materia.html#fundamentos" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h3 class="card-title">Fundamentos</h3>
+                            <p class="card-text">Variáveis, tipos de dados, operadores e conceitos básicos.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <a href="materia.html#controle" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h3 class="card-title">Estruturas de Controle</h3>
+                            <p class="card-text">Condicionais, loops e fluxo de execução.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <a href="materia.html#metodos" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h3 class="card-title">Métodos</h3>
+                            <p class="card-text">Métodos para Numbers, Strings e manipulação de dados.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <a href="materia.html#funcoes" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-function"></i>
+                            </div>
+                            <h3 class="card-title">Funções</h3>
+                            <p class="card-text">Declaração, parâmetros, escopo e arrow functions.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <a href="materia.html#objetos" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <h3 class="card-title">Objetos & Arrays</h3>
+                            <p class="card-text">Trabalhando com estruturas de dados complexas.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <a href="materia.html#dom-intro" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <h3 class="card-title">DOM</h3>
+                            <p class="card-text">Document Object Model e manipulação de elementos.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <a href="materia.html#dom-events" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-mouse-pointer"></i>
+                            </div>
+                            <h3 class="card-title">Eventos</h3>
+                            <p class="card-text">Manipulação de eventos no navegador.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <a href="materia.html#LocalStorage" class="text-decoration-none">
+                    <div class="card subject-card">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3 class="card-title">LocalStorage</h3>
+                            <p class="card-text">Armazenamento local e persistência de dados.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p class="mb-0">© 2024/25 ESMAD - Todos os direitos reservados</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
